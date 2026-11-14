@@ -2,7 +2,6 @@
 import pytest
 
 import selection_core
-from tests.conftest import sample_event
 
 
 @pytest.mark.req("REQ-SEL-01")
@@ -21,7 +20,7 @@ def test_valid_selection_is_recorded_on_the_event(sample_event):
 def test_media_from_another_event_is_rejected(sample_event):
     with pytest.raises(selection_core.SelectionError) as err:
         selection_core.submit_selection(
-            sample_event, "cli_100", ["med_3"], ["add_to_album"]
+            sample_event, "cli_100", ["med_9"], ["add_to_album"]
         )
     assert err.value.code == "MEDIA_NOT_AVAILABLE"
 
